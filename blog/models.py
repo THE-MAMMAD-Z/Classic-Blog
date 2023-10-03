@@ -9,6 +9,21 @@ class Post(models.Model) :
     content=models.TextField()
     autor=models.CharField(max_length=100)
 
+    def call_the_post(self):
+        txt1 = "My name is {fname}, Im {age}".format(fname = self.title , age = 36)
+        return txt1
 
     def __str__(self):
         return self.title
+    
+
+class Todo(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    priority = models.IntegerField(default=1)
+    is_done  = models.BooleanField()
+
+    class Meta():
+        db_table = "todos"
+
+
